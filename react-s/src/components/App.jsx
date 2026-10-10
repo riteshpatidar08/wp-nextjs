@@ -1,0 +1,30 @@
+import { useEffect, useState } from 'react'
+import { API_URL } from '../lib/config'
+import Spinner from './Spinner'
+import PromoBanner from './PromoBanner'
+import Header from './Header'
+import Store from './Store'
+
+// SLOW ON PURPOSE: nothing on the page shows until the "user" request finishes.
+// Only after that does <Store /> mount and start ITS request (a waterfall).
+export default function App() {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    fetch(`${API_URL}/api/user`)
+      .then((res) => res.json())
+      .then(setUser)
+  }, [])
+
+  if (!user) return <Spinner />
+
+  return (
+    <>
+      <PromoBanner />
+      <Header user={user} />
+      <main className="container">
+        <Store />
+      </main>
+    </>
+  )
+}

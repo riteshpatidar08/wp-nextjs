@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopFast · React (slow)</title>
+
+    <!-- SLOW ON PURPOSE (CLS): web font loaded from another server.
+         Text first shows in Arial, then jumps when Poppins arrives. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
+
+    <!-- SLOW ON PURPOSE (LCP + INP): a heavy "third-party" script loaded
+         normally in <head>. The browser must download and run it before
+         it can show anything at all. -->
+    <script src="/chat-widget.js"></script>
+  </head>
+  <body>
+    <!-- The server sends this EMPTY box. Everything else is built in the browser. -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

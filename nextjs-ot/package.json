@@ -1,0 +1,18 @@
+{
+  "name": "shopfast-nextjs-optimized",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "predev": "node ../shared/scripts/copy-public.mjs",
+    "dev": "next dev -p 3001",
+    "prebuild": "node ../shared/scripts/copy-public.mjs",
+    "build": "next build",
+    "start": "next start -p 3001"
+  },
+  "dependencies": {
+    "moment": "^2.30.1",
+    "next": "^16.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
